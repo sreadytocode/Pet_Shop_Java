@@ -1,6 +1,8 @@
 package pet;
 
-public abstract class Pet {
+import behaviour.ISell;
+
+public abstract class Pet implements ISell {
     private double priceBought;
     private double priceSold;
 
@@ -16,4 +18,10 @@ public abstract class Pet {
     public double getPriceSold() {
         return priceSold;
     }
+
+    @Override
+    public Double calculateMarkup() {
+        return priceSold - priceBought;
+    }
+
 }

@@ -42,4 +42,8 @@ public class PersianTest {
     public void canPlay(){
         assertEquals("Yayy playtime *rolls around*", persian.play());
     }
+    @Test
+    public void canCalculateMarkup(){
+        assertEquals(100,persian.calculateMarkup(), 0.0);
+    }
 }

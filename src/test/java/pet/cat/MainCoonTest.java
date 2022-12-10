@@ -40,4 +40,9 @@ public class MainCoonTest{
     public void canPlay(){
         assertEquals("Time to catch if any Hogwart Student's are breaking any rules", maineCoon.play());
     }
+
+    @Test
+    public void canCalculateMarkup(){
+        assertEquals(250,maineCoon.calculateMarkup(), 0.0);
+    }
 }

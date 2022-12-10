@@ -42,4 +42,9 @@ public class RagdollTest {
     public void canPlay(){
         assertEquals("Playtime wohoo then naptime", ragdoll.play());
     }
+    @Test
+    public void canCalculateMarkup(){
+        assertEquals(200,ragdoll.calculateMarkup(), 0.0);
+    }
+
 }
