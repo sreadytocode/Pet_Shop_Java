@@ -8,4 +8,12 @@ public abstract class Pet {
         this.priceBought = priceBought;
         this.priceSold = priceSold;
     }
+
+    public double getPriceBought() {
+        return priceBought;
+    }
+
+    public double getPriceSold() {
+        return priceSold;
+    }
 }
