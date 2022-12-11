@@ -12,10 +12,13 @@ public class Till {
     }
 
     public void addMoney(double money) {
-        cash += money;
+        if (money >= 0){
+            cash += money;
+        }
     }
 
     public void reduceMoney(double money) {
         cash -= money;
+
     }
 }
