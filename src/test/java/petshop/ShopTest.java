@@ -75,4 +75,18 @@ public class ShopTest {
         assertEquals(null, shop.findCat("Jane"));
     }
 
+    @Test
+    public void canAddPetToStock(){
+        MaineCoon jasmine = new MaineCoon(750, 1000, "Jasmine", CatAgeType.Kitten);
+        shop.addToStock(jasmine);
+        assertEquals(4, shop.getStockCount());
+    }
+
+    @Test
+    public void canRemovePetFromStock(){
+        MaineCoon jasmine = new MaineCoon(750, 1000, "Jasmine", CatAgeType.Kitten);
+        shop.removeStock(jasmine);
+        assertEquals(3, shop.getStockCount());
+    }
+
 }

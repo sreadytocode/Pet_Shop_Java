@@ -3,6 +3,7 @@ package petshop;
 import behaviour.ISell;
 import pet.Pet;
 import pet.cat.Cat;
+import pet.cat.MaineCoon;
 import pet.cat.Ragdoll;
 
 import java.util.ArrayList;
@@ -54,5 +55,13 @@ public class Shop implements ISell {
                         .findFirst()
                 .orElse(null);
 
+    }
+
+    public void addToStock(Cat cat) {
+        stock.add(cat);
+    }
+
+    public void removeStock(Cat cat) {
+        stock.remove(cat);
     }
 }
