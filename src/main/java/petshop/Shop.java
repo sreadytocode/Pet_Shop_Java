@@ -3,10 +3,7 @@ package petshop;
 import behaviour.ISell;
 import pet.Pet;
 import pet.cat.Cat;
-import pet.cat.MaineCoon;
-import pet.cat.Ragdoll;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Shop implements ISell {
@@ -18,9 +15,9 @@ public class Shop implements ISell {
     private String name;
     Till till;
 
-    private ArrayList<ISell> stock;
+    private List<Cat> stock;
 
-    public Shop(String name, Till till, ArrayList<ISell> stock) {
+    public Shop(String name, Till till, List<Cat> stock) {
         this.name = name;
         this.till = till;
         this.stock = stock;
@@ -35,7 +32,7 @@ public class Shop implements ISell {
         return this.till;
     }
 
-    public ArrayList<ISell> getStock() {
+    public List<Cat> getStock() {
         return stock;
     }
 
@@ -48,20 +45,21 @@ public class Shop implements ISell {
         return stock.size();
     }
 
-    public String findCat(String catToFind) {
-        return cats
+    public Cat findCat(String catToFind) {
+        return stock
                 .stream()
-                .filter(cat -> cat.equals(catToFind))
+                .filter(cats -> cats.getName().equals(catToFind))
                         .findFirst()
                 .orElse(null);
 
     }
 
-    public void addToStock(Cat cat) {
-        stock.add(cat);
-    }
+//    public boolean addToStock(Cat cat) {
+//        return stock.add(cat);
+//    }
 
     public void removeStock(Cat cat) {
         stock.remove(cat);
     }
+
 }

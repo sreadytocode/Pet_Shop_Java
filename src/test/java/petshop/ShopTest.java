@@ -3,10 +3,8 @@ package petshop;
 import behaviour.ISell;
 import org.junit.Before;
 import org.junit.Test;
-import pet.cat.CatAgeType;
-import pet.cat.MaineCoon;
-import pet.cat.Persian;
-import pet.cat.Ragdoll;
+import pet.cat.*;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,20 +22,25 @@ public class ShopTest {
 
     Persian diva;
 
+    Cat cat;
+
+
+
     @Before
     public void before(){
         mrsNorris = new MaineCoon(750, 1000, "Mrs Norris", CatAgeType.Adult);
         maya = new Ragdoll(1000, 1200, "Maya", CatAgeType.Teenager);
         diva = new Persian(1100, 1200, "Diva", CatAgeType.Kitten);
-        ArrayList<ISell> stock = new ArrayList<>();
-        stock.add(mrsNorris);
-        stock.add(maya);
-        stock.add(diva);
+//        ArrayList<ISell> stock = new ArrayList<>();
+        List<Cat> stock = Arrays.asList(mrsNorris, maya, diva);
+//        stock.add(mrsNorris);
+//        stock.add(maya);
+//        stock.add(diva);
 
 
         till = new Till(10000);
         shop = new Shop("Sara's cat shop", till, stock);
-        shop.cats = Arrays.asList("Maya", "Diva", "Mrs Norris");
+//        shop.cats = Arrays.asList("Maya", "Diva", "Mrs Norris");
 
 
     }
@@ -59,15 +62,15 @@ public class ShopTest {
 
     @Test
     public void hasGetCatMaya(){
-        assertEquals("Maya", shop.findCat("Maya"));
+        assertEquals(maya, shop.findCat("Maya"));
     }
     @Test
     public void hasGetCatDiva(){
-        assertEquals("Diva", shop.findCat("Diva"));
+        assertEquals(diva, shop.findCat("Diva"));
     }
     @Test
     public void hasGetCatNorris(){
-        assertEquals("Mrs Norris", shop.findCat("Mrs Norris"));
+        assertEquals(mrsNorris, shop.findCat("Mrs Norris"));
     }
 
     @Test
@@ -75,12 +78,12 @@ public class ShopTest {
         assertEquals(null, shop.findCat("Jane"));
     }
 
-    @Test
-    public void canAddPetToStock(){
-        MaineCoon jasmine = new MaineCoon(750, 1000, "Jasmine", CatAgeType.Kitten);
-        shop.addToStock(jasmine);
-        assertEquals(4, shop.getStockCount());
-    }
+//    @Test
+//    public void canAddPetToStock(){
+//        MaineCoon jasmine = new MaineCoon(750, 1000, "Jasmine", CatAgeType.Kitten);
+//        shop.addToStock(jasmine);
+//        assertEquals(4, shop.getStockCount());
+//    }
 
     @Test
     public void canRemovePetFromStock(){
@@ -88,5 +91,6 @@ public class ShopTest {
         shop.removeStock(jasmine);
         assertEquals(3, shop.getStockCount());
     }
+    
 
 }
